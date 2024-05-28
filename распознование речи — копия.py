@@ -5,8 +5,9 @@ import speech_recognition as sr
 import pywhatkit as kit
 
 # Номер получателя и сообщение
-#phone_number = '+79268403751'
-phone_number = '+79670331777'
+sergay = '+79670331777'
+timofey='+79268403751'
+
 message = '' 
 
 def listen():
@@ -36,7 +37,7 @@ while True:
             keyboard.press('enter')
 
             keyboard.release('enter')'''
-    if 'начать' in text:
+    if 'начать запись' in text:
         recording = True
         a = ''
         print("Запись началась...")
@@ -44,7 +45,7 @@ while True:
     while recording:
         text = listen()
         #print(text)
-        if 'остановить' in text:
+        if 'остановить запись' in text:
             recording = False
             print("Запись остановлена.")
         elif 'отправить' in text:
@@ -66,10 +67,16 @@ while True:
             a += text + ' '
             keyboard.write(text + ' ')
         
-    if 'отправить сообщение' in text:
+    if 'отправить сообщение сергей' in text:
         message = text
-        message=message.replace('отправить сообщение', '')
-        kit.sendwhatmsg_instantly(phone_number, message)
+        message=message.replace('отправить сообщение сергей', '')
+        kit.sendwhatmsg_instantly(sergay, message)
+    if 'отправить сообщение тимофей' in text:
+
+
+        message = text
+        message=message.replace('отправить сообщение тимофей', '')
+        kit.sendwhatmsg_instantly(timofey, message)
     if 'очистить' in text:
         keyboard.send('ctrl+a')
         keyboard.send('backspace')
@@ -77,6 +84,10 @@ while True:
         keyboard.send('ctrl+a+backspace')
     if 'закрыть приложение' in text:
         keyboard.send('alt+f4')
+    if 'следующая вкладка' in text:
+        keyboard.send('alt+tab')
+    if 'отправить' in text:
+        keyboard.send('enter')
     if 'стоп' in text:
         break
 
