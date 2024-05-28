@@ -2,3 +2,4 @@ libs:
 keyboard
 SpeechRecognition
 PyAudio
+pywhatkit
