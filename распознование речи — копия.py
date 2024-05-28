@@ -53,9 +53,6 @@ while True:
             keyboard.press('enter')
             keyboard.release('enter')
             a = ''
-        elif 'отправить сообщение' in text:
-            message = text
-            kit.sendwhatmsg_instantly(phone_number, message)
         elif 'очистить' in text:
             keyboard.send('ctrl+a')
             keyboard.send('backspace')
