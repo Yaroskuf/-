@@ -1,7 +1,5 @@
 import keyboard
 import speech_recognition as sr
-
-
 import pywhatkit as kit
 
 # Номер получателя и сообщение
@@ -28,15 +26,13 @@ def listen():
     return text
 
 a = ''
+
 recording = False
 
 while True:
     text = listen()
-    #print(text)
-    '''if 'отправить' in text:
-            keyboard.press('enter')
+    print(text)
 
-            keyboard.release('enter')'''
     if 'начать запись' in text:
         recording = True
         a = ''
@@ -45,21 +41,26 @@ while True:
     while recording:
         text = listen()
         #print(text)
+        
         if 'остановить запись' in text:
             recording = False
             print("Запись остановлена.")
+            
         elif 'отправить' in text:
-            #keyboard.write(a)
             keyboard.press('enter')
             keyboard.release('enter')
             a = ''
+            
         elif 'очистить' in text:
             keyboard.send('ctrl+a')
             keyboard.send('backspace')
+            
         elif 'удалить слово' in text:
             keyboard.send('ctrl+a+backspace')
+            
         elif 'стоп' in text:
              break
+            
         else:
             a += text + ' '
             keyboard.write(text + ' ')
@@ -69,8 +70,6 @@ while True:
         message=message.replace('отправить сообщение сергей', '')
         kit.sendwhatmsg_instantly(sergay, message)
     if 'отправить сообщение тимофей' in text:
-
-
         message = text
         message=message.replace('отправить сообщение тимофей', '')
         kit.sendwhatmsg_instantly(timofey, message)
