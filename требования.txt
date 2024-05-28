@@ -1,3 +1,4 @@
+python ver 3.9
 libs:
 keyboard
 SpeechRecognition
