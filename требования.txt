@@ -1,0 +1,4 @@
+libs:
+keyboard
+SpeechRecognition
+PyAudio
