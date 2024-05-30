@@ -4,3 +4,4 @@ keyboard
 SpeechRecognition
 PyAudio
 pywhatkit
+selenium webdriver-manager
